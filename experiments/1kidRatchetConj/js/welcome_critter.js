@@ -42,7 +42,7 @@ var genColor = function(color, variance) {
 var scale = 0.5;
 
 // Change this to desired creature features/names
-var creatureOpts = [
+var options = {conjunction: [
 	{ creature: "bird",
 		name: "not a " + categoryName,
 		// list by decreasing probabilities ( highest first )
@@ -226,7 +226,194 @@ var creatureOpts = [
 	// 	tar1: 0, // crest
 	// 	internal_prop: 0 // pepsin
 	
-]
+], disjunction :  [
+	{ creature: "bird",
+		name: "not a " + categoryName,
+		// list by decreasing probabilities ( highest first )
+		globalColors: [
+			{
+				p: 0.99,
+				props: {
+					color_mean: "blue",
+					color_var: 0.001,
+					location: "ground"
+				}
+			}, {
+				p: 0.01,
+				props: {
+					color_mean: "yellow",
+					color_var: 0.001,
+					location: "trees"
+				}
+			}],
+		col1_mean: "#00ff00", // col1 = crest
+		col1_var: 3,
+		col2_mean: "#00ff1a", // col2 = body
+		col2_var: 3,
+		col3_mean: "#006400", // col3 = wing
+		col3_var: 3,
+	    col4_mean: null,
+	    col4_var: null,
+	    col5_mean: null,
+	    col5_var: null,
+		prop1: null, // height
+		prop2: null, // fatness
+		tar1: 0, // tails
+		tar2: 0, // crest
+		internal_prop: 0.8, // pepsin
+		cat_mem: 0.1,
+		creatureNameReal: "not a " + categoryName
+	},
+	{ creature: "bird",
+		name: "not a 1" + categoryName,
+		// list by decreasing probabilities ( highest first )
+		globalColors: [
+			{
+				p: 0.99,
+				props: {
+					color_mean: "blue",
+					color_var: 0.001,
+					location: "ground"
+				}
+			}, {
+				p: 0.01,
+				props: {
+					color_mean: "yellow",
+					color_var: 0.001,
+					location: "trees"
+				}
+			}],
+		col1_mean: "#00ff00", // col1 = crest
+		col1_var: 3,
+		col2_mean: "#00ff1a", // col2 = body
+		col2_var: 3,
+		col3_mean: "#006400", // col3 = wing
+		col3_var: 3,
+	    col4_mean: null,
+	    col4_var: null,
+	    col5_mean: null,
+	    col5_var: null,
+		prop1: null, // height
+		prop2: null, // fatness
+		tar1: 1, // tails
+		tar2: 0, // crest
+		internal_prop: 0.8, // pepsin
+		cat_mem: 0.2,
+		creatureNameReal: "not a " + categoryName
+	},
+	{ creature: "bird",
+		name: "not a 2" + categoryName,
+		// list by decreasing probabilities ( highest first )
+		globalColors: [
+			{
+				p: 0.99,
+				props: {
+					color_mean: "blue",
+					color_var: 0.001,
+					location: "ground"
+				}
+			}, {
+				p: 0.01,
+				props: {
+					color_mean: "yellow",
+					color_var: 0.001,
+					location: "trees"
+				}
+			}],
+		col1_mean: "#00ff00", // col1 = crest
+		col1_var: 3,
+		col2_mean: "#00ff1a", // col2 = body
+		col2_var: 3,
+		col3_mean: "#006400", // col3 = wing
+		col3_var: 3,
+	    col4_mean: null,
+	    col4_var: null,
+	    col5_mean: null,
+	    col5_var: null,
+		prop1: null, // height
+		prop2: null, // fatness
+		tar1: 0, // tails
+		tar2: 1, // crest
+		internal_prop: 0.8, // pepsin
+		cat_mem: 0.3,
+		creatureNameReal: "not a " + categoryName
+	},
+	{ creature: "bird",
+		globalColors: [
+			{
+				p: 1,
+				props: {
+					color_mean: "blue",
+					color_var: 0.001,
+					location: "ground"
+				}
+			}, {
+				p: 0,
+				props: {
+					color_mean: "red",
+					color_var: 0.001,
+					location: "trees"
+				}
+			}],
+		name: categoryName,
+		col1_mean: "#00ff00", // col1 = crest
+		// col1_mean: "#ff4500", // col1 = crest
+		col1_var: 1.5,
+		col2_mean: "#00ff1a", // col2 = body
+		// col2_mean: "#ff4500", // col2 = body
+		col2_var: 1.5,
+		col3_mean: "#006400", // col3 = wing
+		// col3_mean: "#ff4500", // col3 = wing
+		col3_var: 1.5,
+    	col4_mean: null,
+	    col4_var: null,
+	    col5_mean: null,
+	    col5_var: null,
+		prop1: null, // height
+		prop2: null, // fatness
+		tar1: 1, // tails
+		tar2: 1, // crest
+		internal_prop: 1, // pepsin
+		cat_mem: 1,
+		creatureNameReal: categoryName
+	}
+	// { creature: "bird",
+	// 	name: "not lorch",
+	// 	globalColors: [
+	// 		{
+	// 			p: 0.5,
+	// 			props: {
+	// 				color_mean: "yellow",
+	// 				color_var: 0.001,
+	// 				location: "ground"
+	// 			}
+	// 		}, {
+	// 			p: 0.5,
+	// 			props: {
+	// 				color_mean: "purple",
+	// 				color_var: 0.001,
+	// 				location: "trees"}
+	// 		}],
+	// 	col1_mean: "#ffff00", // col1 = crest
+	// 	col1_var: 0,
+	// 	col2_mean: "#ffff00", // col2 = body
+	// 	col2_var: 0,
+	// 	col3_mean: "#ffff00", // col3 = wing
+	// 	col3_var: 0,
+	//     col4_mean: null,
+	//     col4_var: null,
+	//     col5_mean: null,
+	//     col5_var: null,
+	// 	prop1: null, // height
+	// 	prop2: null, // fatness
+	// 	tar1: 0, // tails
+	// 	tar1: 0, // crest
+	// 	internal_prop: 0 // pepsin
+	
+] }
+
+var creatureOpts = options[exp.condition]
+// var creatureOpts = options["conjunction"]
 
 // Change this to desired critter count / distribution
 var creatureTypesN = 4;
