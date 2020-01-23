@@ -1,6 +1,6 @@
 var prev = null;
 
-var condition = "disjunction"
+var condition = _.sample(["disjunction","conjunction"])
 
 
  var audienceimagechild = _.sample([{path: "../_shared/images/malechild1.jpg", name: "malechild1"},
@@ -157,6 +157,7 @@ function make_slides(f) {
     log_responses: function(){
       exp.catch_trials.push({
           "trial_type" : "learning_trial",
+          "condition": condition,
           "trial_num" : 0, //change later when we add more blocks
           "question": "NA",
           "distribution": JSON.stringify(exp.distribution),
@@ -275,7 +276,7 @@ function make_slides(f) {
     log_responses: function(){
       exp.catch_trials.push({
           "trial_type" : "learning_trial",
-          // "condition" : condition,
+          "condition" : condition,
           "trial_num" : this.trial_num,
           "question": exp.question,
           "distribution": JSON.stringify(exp.distribution),
@@ -360,6 +361,7 @@ function make_slides(f) {
     log_responses: function(){
       exp.catch_trials.push({
           "trial_type" : "test_trial",
+          "condition": condition,
           "trial_num" : this.trial_num,
           "question": exp.question,
           "distribution": JSON.stringify(exp.distribution),
@@ -496,6 +498,7 @@ slides.accuracy_slide = slide({
     log_responses : function() {
       exp.data_trials.push({
         "trial_type" : "accuracy_slider",
+        "condition": condition,
         "item" : this.stim.item,
         "response" : exp.sliderPost
       });
@@ -715,7 +718,7 @@ function init() {
     )).join('')
   })
 
-if (condition = 'conjunction'){
+if (condition == 'conjunction'){
   exp.target_critters = _.filter(exp.test_critters,function(item){return item["cat_mem"] == 1})
   exp.distractor1_critters = _.filter(exp.test_critters,function(item){return item["cat_mem"] == 0.1})
   exp.distractor2_critters = _.filter(exp.test_critters,function(item){return item["cat_mem"] == 0.2})
