@@ -3,15 +3,15 @@ var prev = null;
 var condition = "disjunction"
 
 
- var audienceimagechild = _.sample([{path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\malechild1.jpg", name: "malechild1"},
-  {path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\malechild2.jpg", name: "malechild2"},
-  {path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\femchild1copy.jpg", name: "femchild1"},
-  {path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\femchild2.jpg", name: "femchild2"}])
+ var audienceimagechild = _.sample([{path: "../_shared/images/malechild1.jpg", name: "malechild1"},
+  {path: "../_shared/images/malechild2.jpg", name: "malechild2"},
+  {path: "../_shared/images/femchild1copy.jpg", name: "femchild1"},
+  {path: "../_shared/images/femchild2.jpg", name: "femchild2"}])
 
- var audienceimageadult = _.sample([{path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\maleadult1.jpg", name: "maleadult1"},
-  {path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\maleadult2.jpg", name: "maleadult2"},
-  {path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\femadult1copy.jpg", name: "femadult1"},
-  {path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\femadult2.jpg", name: "femadult2"}])
+ var audienceimageadult = _.sample([{path: "../_shared/images/maleadult1.jpg", name: "maleadult1"},
+  {path: "../_shared/images/maleadult2.jpg", name: "maleadult2"},
+  {path: "../_shared/images/femadult1copy.jpg", name: "femadult1"},
+  {path: "../_shared/images/femadult2.jpg", name: "femadult2"}])
 
 
 function mark(el, otherEls) {
@@ -416,8 +416,8 @@ function make_slides(f) {
       "<img src=" + audienceimagechild + "alt=\"Child\" id=\"childpic\"></img>"
       $("#childpicaudience").html("<img src=\"" + audienceimagechild.path + "\" alt=\"Child\" id=\"childpic\"></img>")
       // $(".explanation").html(stim.explanation)
-      // "<img src=" + audienceimageadult + "alt=\"Adult\" id=\"adultpic\"></img>"
-      // $("adultpicaudience").html("<img src =\"" + audienceimageadult.path + "\" alt=\"Adult\" id=\"adultpic\"></img>")
+      "<img src=" + audienceimageadult + "alt=\"Adult\" id=\"adultpic\"></img>"
+      $("#adultpicaudience").html("<img src =\"" + audienceimageadult.path + "\" alt=\"Adult\" id=\"adultpic\"></img>")
       this.init_sliders();
       exp.sliderPost = null; //erase current slider value
     },
