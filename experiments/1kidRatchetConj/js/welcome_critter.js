@@ -412,7 +412,6 @@ var options = {conjunction: [
 	
 ] }
 
-var creatureOpts = options[exp.condition]
 // var creatureOpts = options["conjunction"]
 
 // Change this to desired critter count / distribution

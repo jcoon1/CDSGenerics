@@ -1,14 +1,17 @@
 var prev = null;
 
- var audienceimagechild = _.sample([{path: "C:\\Users\\Jeff\\experiments\\gen-games\\experiments\\_shared\\images\\malechild1.jpg", name: "malechild1"},
- 	"C:\\Users\\Jeff\\experiments\\gen-games\\experiments\\_shared\\images\\malechild2.jpg",
- 	"C:\\Users\\Jeff\\experiments\\gen-games\\experiments\\_shared\\images\\femchildcopy1.jpg",
- 	"C:\\Users\\Jeff\\experiments\\gen-games\\experiments\\_shared\\images\\femchild2.jpg"])
+var condition = "disjunction"
 
- var audienceimageadult = _.sample(["C:\\Users\\Jeff\\experiments\\gen-games\\experiments\\_shared\\images\\maleadult1.jpg",
- 	"C:\\Users\\Jeff\\experiments\\gen-games\\experiments\\_shared\\images\\maleadult2.jpg",
- 	"C:\\Users\\Jeff\\experiments\\gen-games\\experiments\\_shared\\images\\femadult1.jpg",
- 	"C:\\Users\\Jeff\\experiments\\gen-games\\experiments\\_shared\\images\\femadult2.jpg"])
+
+ var audienceimagechild = _.sample([{path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\malechild1.jpg", name: "malechild1"},
+  {path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\malechild2.jpg", name: "malechild2"},
+  {path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\femchild1copy.jpg", name: "femchild1"},
+  {path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\femchild2.jpg", name: "femchild2"}])
+
+ var audienceimageadult = _.sample([{path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\maleadult1.jpg", name: "maleadult1"},
+  {path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\maleadult2.jpg", name: "maleadult2"},
+  {path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\femadult1copy.jpg", name: "femadult1"},
+  {path: "C:\\Users\\Jeff\\experiments\\CDSGenerics\\experiments\\_shared\\images\\femadult2.jpg", name: "femadult2"}])
 
 
 function mark(el, otherEls) {
@@ -412,6 +415,9 @@ function make_slides(f) {
       // $(".prompt").html(stim.subject + "s like " + stim.object + "s.");
       "<img src=" + audienceimagechild + "alt=\"Child\" id=\"childpic\"></img>"
       $("#childpicaudience").html("<img src=\"" + audienceimagechild.path + "\" alt=\"Child\" id=\"childpic\"></img>")
+      // $(".explanation").html(stim.explanation)
+      // "<img src=" + audienceimageadult + "alt=\"Adult\" id=\"adultpic\"></img>"
+      // $("adultpicaudience").html("<img src =\"" + audienceimageadult.path + "\" alt=\"Adult\" id=\"adultpic\"></img>")
       this.init_sliders();
       exp.sliderPost = null; //erase current slider value
     },
@@ -437,6 +443,7 @@ function make_slides(f) {
     log_responses : function() {
       exp.data_trials.push({
         "trial_type" : "audience_slider",
+        "condition" : condition,
         "item" : this.stim.item,
         "response" : exp.sliderPost,
         "childimage" : audienceimagechild.name
@@ -708,6 +715,7 @@ function init() {
     )).join('')
   })
 
+if (condition = 'conjunction'){
   exp.target_critters = _.filter(exp.test_critters,function(item){return item["cat_mem"] == 1})
   exp.distractor1_critters = _.filter(exp.test_critters,function(item){return item["cat_mem"] == 0.1})
   exp.distractor2_critters = _.filter(exp.test_critters,function(item){return item["cat_mem"] == 0.2})
@@ -716,6 +724,14 @@ function init() {
   exp.test_trial_critters2 = exp.test_trial_critters1.concat(_.sample(exp.distractor2_critters,3))
   exp.test_trial_critters = _.shuffle(exp.test_trial_critters2.concat(_.sample(exp.distractor3_critters,3)))
   // exp.test_trial_critters = _.shuffle(exp.test_trial_critters.push())
+}
+else{exp.target1_critters = _.filter(exp.test_critters,function(item){return item["cat_mem"] == 1.1})
+  exp.target2_critters = _.filter(exp.test_critters,function(item){return item["cat_mem"] == 1.2})
+  exp.distractor1_critters = _.filter(exp.test_critters,function(item){return item["cat_mem"] == 0.1})
+  exp.distractor2_critters = _.filter(exp.test_critters,function(item){return item["cat_mem"] == 0.2})
+  exp.test_trial_critters1 = _.sample(exp.target1_critter,3).concat(_.sample(exp.target2_critter,3))
+  exp.test_trial_critters2 = exp.test_trial_critters1.concat(_.sample(exp.distractor1_critters,3))
+  exp.test_trial_critters = _.shuffle(exp.test_trial_critters2.concat(_.sample(exp.distractor2_critters,3)))}
 
   exp.system = {
       Browser : BrowserDetect.browser,
@@ -768,7 +784,7 @@ function init() {
 
 
 
-var condition = _.sample(["conjunction","disjunction"])
+// var condition = _.sample(["conjunction","disjunction"])
 
 
 // To use this code: before implementing, see line 37, you can alter creatureOpts to make certain types of critters, add your own creatures to the array if you please
@@ -817,7 +833,7 @@ var scale = 0.5;
 // Change this to desired creature features/names
 var options = {conjunction: [
   { creature: "bird",
-    name: "not a " + categoryName,
+    name: "neither not" + categoryName,
     // list by decreasing probabilities ( highest first )
     globalColors: [
       {
@@ -854,7 +870,7 @@ var options = {conjunction: [
     creatureNameReal: "not a " + categoryName
   },
   { creature: "bird",
-    name: "not a 1" + categoryName,
+    name: "has1not" + categoryName,
     // list by decreasing probabilities ( highest first )
     globalColors: [
       {
@@ -891,7 +907,7 @@ var options = {conjunction: [
     creatureNameReal: "not a " + categoryName
   },
   { creature: "bird",
-    name: "not a 2" + categoryName,
+    name: "has2not" + categoryName,
     // list by decreasing probabilities ( highest first )
     globalColors: [
       {
@@ -1001,7 +1017,7 @@ var options = {conjunction: [
   
 ], disjunction :  [
   { creature: "bird",
-    name: "not a " + categoryName,
+    name: "hasneithernot" + categoryName,
     // list by decreasing probabilities ( highest first )
     globalColors: [
       {
@@ -1038,7 +1054,7 @@ var options = {conjunction: [
     creatureNameReal: "not a " + categoryName
   },
   { creature: "bird",
-    name: "not a 1" + categoryName,
+    name: "has1" + categoryName,
     // list by decreasing probabilities ( highest first )
     globalColors: [
       {
@@ -1071,11 +1087,11 @@ var options = {conjunction: [
     tar1: 1, // tails
     tar2: 0, // crest
     internal_prop: 0.8, // pepsin
-    cat_mem: 0.2,
-    creatureNameReal: "not a " + categoryName
+    cat_mem: 1.1,
+    creatureNameReal: categoryName
   },
   { creature: "bird",
-    name: "not a 2" + categoryName,
+    name: "has2" + categoryName,
     // list by decreasing probabilities ( highest first )
     globalColors: [
       {
@@ -1108,8 +1124,8 @@ var options = {conjunction: [
     tar1: 0, // tails
     tar2: 1, // crest
     internal_prop: 0.8, // pepsin
-    cat_mem: 0.3,
-    creatureNameReal: "not a " + categoryName
+    cat_mem: 1.2,
+    creatureNameReal: categoryName
   },
   { creature: "bird",
     globalColors: [
@@ -1128,7 +1144,7 @@ var options = {conjunction: [
           location: "trees"
         }
       }],
-    name: categoryName,
+    name: "hasbothnot" + categoryName,
     col1_mean: "#00ff00", // col1 = crest
     // col1_mean: "#ff4500", // col1 = crest
     col1_var: 1.5,
@@ -1147,8 +1163,8 @@ var options = {conjunction: [
     tar1: 1, // tails
     tar2: 1, // crest
     internal_prop: 1, // pepsin
-    cat_mem: 1,
-    creatureNameReal: categoryName
+    cat_mem: 0.2,
+    creatureNameReal:"not a " + categoryName
   }
   // { creature: "bird",
   //  name: "not lorch",
