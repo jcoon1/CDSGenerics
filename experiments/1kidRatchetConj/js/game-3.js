@@ -732,7 +732,7 @@ else{exp.target1_critters = _.filter(exp.test_critters,function(item){return ite
   exp.target2_critters = _.filter(exp.test_critters,function(item){return item["cat_mem"] == 1.2})
   exp.distractor1_critters = _.filter(exp.test_critters,function(item){return item["cat_mem"] == 0.1})
   exp.distractor2_critters = _.filter(exp.test_critters,function(item){return item["cat_mem"] == 0.2})
-  exp.test_trial_critters1 = _.sample(exp.target1_critter,3).concat(_.sample(exp.target2_critter,3))
+  exp.test_trial_critters1 = _.sample(exp.target1_critters,3).concat(_.sample(exp.target2_critters,3))
   exp.test_trial_critters2 = exp.test_trial_critters1.concat(_.sample(exp.distractor1_critters,3))
   exp.test_trial_critters = _.shuffle(exp.test_trial_critters2.concat(_.sample(exp.distractor2_critters,3)))}
 
