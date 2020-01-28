@@ -129,6 +129,7 @@ turk = turk || {};
           dataType: 'json',
           data: {'jsonData': JSON.stringify(rawData)}
       });
+      console.log("SUBMITTING")
       return;
     }
 
