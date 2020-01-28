@@ -359,7 +359,7 @@ function make_slides(f) {
     },
 
     log_responses: function(){
-      exp.catch_trials.push({
+      exp.data_trials.push({
           "trial_type" : "test_trial",
           "condition": condition,
           "trial_num" : this.trial_num,
