@@ -125,7 +125,7 @@ turk = turk || {};
       // document.body.appendChild(div);
       $.ajax({
           type: 'POST',
-          url: 'https://bayes.langsci.uci.edu/meaninglab/vietnamese/2-faultless-vietnamese/submit.php',
+          url: 'https://bayes.langsci.uci.edu/meaninglab/jcoon1/CDSGenerics/1kidRatchetConj/submit.php',
           dataType: 'json',
           data: {'jsonData': JSON.stringify(rawData)}
       });
