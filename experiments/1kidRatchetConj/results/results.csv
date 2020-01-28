@@ -1,0 +1,11 @@
+,childimage,condition,item,response,trial_type,language,age,gender,education,comments,Browser,OS,screenH,screenW,time_in_minutes,participant_id,col1,col1_crit,col2,col2_crit,col3,col3_crit,col4,col4_crit,col5,col5_crit,critter,distribution,prop1,prop1_crit,prop2,prop2_crit,question,species,tar1,tar1_crit,tar2,tar2_crit,time_in_seconds,trial_num
+0,femchild1,disjunction,explanation1,0.46,audience_slider,,,,-1,"GREG0
+",Safari,Mac,1440,2560,0.2566333333333333,1,,,,,,,,,,,,,,,,,,,,,,,,
+1,,disjunction,explanation1,0.57,accuracy_slider,,,,-1,"GREG0
+",Safari,Mac,1440,2560,0.2566333333333333,1,,,,,,,,,,,,,,,,,,,,,,,,
+0,malechild1,conjunction,explanation1,0.11,audience_slider,asdf,def,Female,1,GREG1,Safari,Mac,1440,2560,0.3745833333333333,2,,,,,,,,,,,,,,,,,,,,,,,,
+1,,conjunction,explanation1,0.77,accuracy_slider,asdf,def,Female,1,GREG1,Safari,Mac,1440,2560,0.3745833333333333,2,,,,,,,,,,,,,,,,,,,,,,,,
+0,,conjunction,,NotCat,test_trial,,dsaf,,-1,GREG2,Chrome,Mac,1440,2560,0.4508666666666667,3,#a4bf2a,crest,#43bc24,body,#184a7c,wing,-99,-99,-99,-99,bird,"[1,1,0.5]",0.6794145489216874,height,0.3135077158034867,fatness,find all of the creatures,has2nottaifel,0.0,tail,1.0,crest,2.076,1.0
+1,,conjunction,,YesCat,test_trial,,dsaf,,-1,GREG2,Chrome,Mac,1440,2560,0.4508666666666667,3,#08dd71,crest,#23f4c7,body,#135503,wing,-99,-99,-99,-99,bird,"[1,1,0.5]",0.44660269514150497,height,0.15311886155278476,fatness,find all of the creatures,taifel,1.0,tail,1.0,crest,0.719,2.0
+2,malechild2,conjunction,explanation1,0.62,audience_slider,,dsaf,,-1,GREG2,Chrome,Mac,1440,2560,0.4508666666666667,3,,,,,,,,,,,,,,,,,,,,,,,,
+3,,conjunction,explanation1,0.38,accuracy_slider,,dsaf,,-1,GREG2,Chrome,Mac,1440,2560,0.4508666666666667,3,,,,,,,,,,,,,,,,,,,,,,,,
