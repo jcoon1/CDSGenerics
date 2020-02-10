@@ -381,6 +381,7 @@ function make_slides(f) {
           "prop2_crit" : this.critOpts.prop2,
           "tar1_crit" : this.critOpts.tar1,
           "tar2_crit" : this.critOpts.tar2,
+          "cat_mem" : this.critOpts.cat_mem,
 
           //"color" : this.stim["color"], //change this
           "col1" : this.stim["col1"],
@@ -448,7 +449,8 @@ function make_slides(f) {
         "condition" : condition,
         "item" : this.stim.item,
         "response" : exp.sliderPost,
-        "childimage" : audienceimagechild.name
+        "childimage" : audienceimagechild.name,
+        "adultimage" :audienceimageadult.name
       });
     }
   });
@@ -598,14 +600,15 @@ slides.accuracy_slide = slide({
       //if (e.preventDefault) e.preventDefault(); // I don't know what this means.
       exp.subj_data = {
         language : $("#language").val(),
-        enjoyment : $("#enjoyment").val(),
-        asses : $('input[name="assess"]:checked').val(),
+        // enjoyment : $("#enjoyment").val(),
+        // asses : $('input[name="assess"]:checked').val(),
         age : $("#age").val(),
         gender : $("#gender").val(),
         education : $("#education").val(),
         comments : $("#comments").val(),
-        problems: $("#problems").val(),
-        fairprice: $("#fairprice").val()
+        // problems: $("#problems").val(),
+        // fairprice: $("#fairprice").val(),
+        communicatingexp: $("#likert").val()
       };
       exp.go(); //use exp.go() if and only if there is no "present" data.
     }
@@ -619,7 +622,7 @@ slides.accuracy_slide = slide({
           "catch_trials" : exp.catch_trials,
           //"learning_trials" : exp.learning_trials,
           "system" : exp.system,
-          "question": exp.question,
+          // "question": exp.question,
           "distribution": JSON.stringify(exp.distribution),          
           "subject_information" : exp.subj_data,
           "time_in_minutes" : (Date.now() - exp.startT)/60000
